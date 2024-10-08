@@ -1,0 +1,9 @@
+.featured-item{
+    background: url("../../../assets/home/featured.jpg");
+    
+    
+}
+.item-shado{
+    box-shadow:  rgba(21,21,21,0);
+    opacity: 80%;
+}
