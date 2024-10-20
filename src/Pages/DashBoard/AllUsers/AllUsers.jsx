@@ -10,7 +10,7 @@ const AllUsers = () => {
     const axiosSecure = useAxiosSecure()
     const { data: users = [],refetch } = useQuery({
         queryKey: ["users"],
-        queryFn: async () => {
+        queryFn: async () => { 
             const res = await axiosSecure.get("/users")
             return res.data
         }
@@ -61,7 +61,7 @@ const handleMakeAdmin=(user)=>{
 
             axiosSecure.patch(`/users/admin/${user._id}`)
             .then(res=>{
-               console.log(res.data)
+            //    console.log(res.data)
                if(res.data.modifiedCount >0){
                    refetch()
                    Swal.fire({

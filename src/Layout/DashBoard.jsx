@@ -6,11 +6,13 @@ import { SiGooglemessages } from "react-icons/si";
 import { TbCalendarShare, TbMessage2Star } from "react-icons/tb";
 import { NavLink, Outlet } from "react-router-dom";
 import useAdmin from "../hooks/useAdmin";
+import useCart from "../hooks/useCart";
 
 
 const DashBoard = () => {
     // ToDo:get is admin value from the database
     const [isAdmin] =useAdmin();
+    const [carts]=useCart()
 
 
     return (
@@ -32,10 +34,10 @@ const DashBoard = () => {
                      <li  > <NavLink to="/dashboard/userHome"> <FaHome></FaHome> User Home</NavLink> </li>
                     <li > <NavLink to="/dashboard/reservation"> <FaCalendarDays /> Reservation</NavLink> </li>
 
-                    <li > <NavLink to="/dashboard/cart"> <BsCart4 className="w-4 h-4 " /> My Cart</NavLink> </li>
-                    <li > <NavLink to="/dashboard/payment"> <IoWalletSharp /> Payment History</NavLink> </li>
+                    <li > <NavLink to="/dashboard/cart"> <BsCart4 className="w-4 h-4 " /> My Cart ({carts.length})  </NavLink> </li>
+                    <li > <NavLink to="/dashboard/payment"> <IoWalletSharp /> Payment</NavLink> </li>
                     <li > <NavLink to="/dashboard/review"> <TbMessage2Star /> Add Review</NavLink> </li>
-                    <li > <NavLink to="/dashboard/bookings"> <TbCalendarShare /> My Booking</NavLink> </li>
+                    <li > <NavLink to="/dashboard/paymentHistory"> <TbCalendarShare /> Payment History</NavLink> </li>
                     </>
                    }
             {/* shared nav links */}

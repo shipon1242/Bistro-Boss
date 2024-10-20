@@ -13,6 +13,11 @@ import Secret from "../Pages/Shared/Secret/Secret";
 import DashBoard from "../Layout/DashBoard";
 import Cart from "../Pages/DashBoard/Cart/Cart";
 import AllUsers from "../Pages/DashBoard/AllUsers/AllUsers";
+import AdminRoute from "./AdminRoute";
+import AddItems from "../Pages/DashBoard/AddItems/AddItems";
+import ManageItems from "../Pages/DashBoard/ManageItems/ManageItems";
+import UpdateItem from "../Pages/DashBoard/UpdateItem/UpdateItem";
+import Payment from "../Pages/DashBoard/Payment/Payment";
 
 
   export const router = createBrowserRouter([
@@ -55,10 +60,31 @@ import AllUsers from "../Pages/DashBoard/AllUsers/AllUsers";
           path:"cart",
           element:<Cart></Cart>
         },
+        {
+          path:"payment",
+          element:<Payment></Payment>
+        },
+
+
         // admin routes
         {
           path:"allUsers",
-          element:<AllUsers></AllUsers>
+          element:<AdminRoute>
+            <AllUsers></AllUsers>
+          </AdminRoute>
+        },
+        {
+          path:"addItems",
+          element:<AdminRoute><AddItems></AddItems></AdminRoute>
+        },
+        {
+          path:"manageItems",
+          element:<AdminRoute> <ManageItems></ManageItems> </AdminRoute>
+        },
+        {
+          path:"updateItem/:id",
+          element:<UpdateItem></UpdateItem>,
+          loader:({params})=>fetch(`http://localhost:5000/updateItem/${params.id}`)
         }
       ]
     }

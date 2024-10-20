@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import useCart from "../../../hooks/useCart";
 import CartRow from "./CartRow";
 
@@ -10,7 +11,8 @@ const Cart = () => {
             <div className="flex justify-evenly">
                 <h2 className="text-4xl font-semibold">Total Order:{carts.length} </h2>
                 <h2 className="text-4xl font-semibold">Total Price:${totalPrice} </h2>
-                <button className="btn btn-primary">Pay</button>
+               {carts.length? <Link to="/dashboard/payment">  <button  className="btn btn-primary">Pay</button> </Link>
+               :<button disabled className="btn btn-primary">Pay</button>}
             </div>
 
             <div className="overflow-x-auto">
@@ -19,7 +21,7 @@ const Cart = () => {
                     <thead className="text-lg text-white border-4 rounded-t-lg  bg-amber-400 ">
                         <tr className="rounded-lg ">
                             <th>
-                               #
+                                #
                             </th>
                             <th> Item Image</th>
                             <th>Item Name</th>
@@ -30,12 +32,12 @@ const Cart = () => {
                     <tbody>
                         {/* row  */}
                         {
-                            carts.map((item,index)=> <CartRow index={index} item={item} key={item._id}></CartRow> )
+                            carts.map((item, index) => <CartRow index={index} item={item} key={item._id}></CartRow>)
                         }
-                        
-                       
+
+
                     </tbody>
-                   
+
                 </table>
             </div>
         </div>

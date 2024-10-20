@@ -46,7 +46,7 @@ const OrderTab = ({ items }) => {
                 
                 {
                     arrayPage.map(pageCount=>
-                        <SwiperSlide>
+                        <SwiperSlide >
                     <div className="grid md:grid-cols-3 gap-8 pb-10">
                         {
                             currentItems.map(item =>  <FoodCard  key={item._id} item={item}></FoodCard>)
