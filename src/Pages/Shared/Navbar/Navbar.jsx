@@ -3,6 +3,8 @@ import { Link } from "react-router-dom";
 import { AuthContext } from "../../../Provider/AuthProvider";
 import { BsCart4 } from "react-icons/bs";
 import useCart from "../../../hooks/useCart";
+import useAdmin from "../../../hooks/useAdmin";
+import useAuth from "../../../hooks/useAuth";
 
 const Navbar = () => {
     const { user, logOut } = useContext(AuthContext)
@@ -13,13 +15,16 @@ const Navbar = () => {
     }
 
     const [carts]=useCart()
+    const [isAdmin]=useAdmin()
     
 
     const navOptions = <>
         <li> <Link to="/">Home</Link> </li>
         <li> <Link to="/menu">Our Menu</Link> </li>
         <li> <Link to="/order/salad">Order Food</Link> </li>
-        <li> <Link to="/secret">Secret</Link> </li>
+        {user&& isAdmin && <li> <Link to="/dashboard/adminHome">Dashboard</Link> </li>}
+        {user&& !isAdmin && <li> <Link to="/dashboard/userHome">Dashboard</Link> </li>}
+        
         <li> <Link to="dashboard/cart">
             <button className="btn">
             <BsCart4 className="w-6 h-6" />

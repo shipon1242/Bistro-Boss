@@ -44,7 +44,7 @@ const DashBoard = () => {
 
                     <div className="divider  divider-neutral">  </div>  
                     <li  > <NavLink to="/"> <FaHome></FaHome> Home</NavLink> </li>
-                    <li  > <NavLink to="/order/salad"> <IoMenu /> Menu</NavLink> </li>
+                    <li  > <NavLink to="/menu"> <IoMenu /> Menu</NavLink> </li>
                     <li  > <NavLink to="/dashboard/shop"> <FaShoppingBag /> Shop</NavLink> </li>
                     <li  > <NavLink to="/dashboard/contact"> <SiGooglemessages /> Contact</NavLink> </li>
                 </ul>
