@@ -2,15 +2,34 @@ import { loadStripe } from "@stripe/stripe-js";
 import SectionTitle from "../../../Components/SectionTitle/SectionTitle";
 import { Elements } from "@stripe/react-stripe-js";
 import CheckOutform from "./CheckOutform";
+import Lottie from 'react-lottie';
+import lottieCard from "../../../../public/Animation - 1729570215843.json"
 // To do :add publishable key
-const stripePromise =loadStripe(import.meta.env.VITE_PAYMENT_GATEWAY_PK)
+const stripePromise = loadStripe(import.meta.env.VITE_PAYMENT_GATEWAY_PK)
 const Payment = () => {
+    const defaultOptions = {
+        loop: false,
+        autoplay: true,
+        animationData: lottieCard,
+        rendererSettings: {
+            preserveAspectRatio: "xMidYMid slice"
+        }
+    };
+
     return (
-        <div>
+        <div className="bg-white">
             <SectionTitle heading="Payment" subHeading="please pay"></SectionTitle>
-            <div>
+            <div className="flex justify-center items-center">
+                <Lottie
+                    options={defaultOptions}
+                    height={300} width={500}>
+
+                </Lottie>
+            </div>
+
+            <div className="">
                 <Elements stripe={stripePromise}>
-          <CheckOutform></CheckOutform>
+                    <CheckOutform></CheckOutform>
                 </Elements>
             </div>
         </div>

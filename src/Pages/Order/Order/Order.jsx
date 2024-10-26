@@ -28,13 +28,13 @@ const Order = () => {
    
     
     return (
-        <div className="space-y-8">
+        <div className="space-y-8 ">
            <Helmet>
                 <title>Bistro Boss | order food</title>
             </Helmet>
             <Cover img={orderCoverImg} title="Order food" subTitle="Would you like to try a dish?"></Cover>
-            <Tabs defaultIndex={tabIndex} onSelect={(index) => setTabIndex(index)}>
-  <TabList>
+            <Tabs className="px-6 " defaultIndex={tabIndex} onSelect={(index) => setTabIndex(index)}>
+  <TabList className="px-4">
     <Tab>SALAD</Tab>
     <Tab>PIZZA</Tab>
     <Tab>SOUPS</Tab>
@@ -43,7 +43,7 @@ const Order = () => {
   </TabList>
   <TabPanel> 
   <Navigate to="/order/salad"></Navigate>
-    <OrderTab  items={salads}></OrderTab>
+    <OrderTab   items={salads}></OrderTab>
     </TabPanel>
 
   <TabPanel>

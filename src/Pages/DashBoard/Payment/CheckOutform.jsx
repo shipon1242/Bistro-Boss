@@ -60,20 +60,27 @@ const CheckOutform = () => {
             }
         })
         if (confirmError) {
-            console.log('confirm error')
+            // console.log('confirm error')
         }
         else {
             console.log('payment intent', paymentIntent)
             if (paymentIntent.status === 'succeeded') {
-                console.log('transaction id', paymentIntent.id)
+                // console.log('transaction id', paymentIntent.id)
                 setTransactionId(paymentIntent.id)
 
                 // now save the payment in the database
+                const date =new Date()
+                const formattedDate = date.toLocaleDateString("en-BD")
+                const formattedTime =date.toLocaleTimeString("en-BD",{
+                    hour:"2-digit",
+                   minute:"2-digit"
+                })
+                const dateTime =`${formattedDate} ${formattedTime}`
                 const payment = {
                     email: user?.email,
                     price: price,
                     transactionId: paymentIntent.id,
-                    date: new Date(), // utc date convert. use moment js to
+                    date: dateTime, // utc date convert. use moment js to
                     cartIds: carts.map(item => item._id),
                     menuItemIds: carts.map(item => item.menuId),
                     status: 'pending'
@@ -99,7 +106,7 @@ const CheckOutform = () => {
 
     }
     return (
-        <form onSubmit={handleSubmit} className="border mt-10 bg-white">
+        <form onSubmit={handleSubmit} className="border mt-2 bg-emerald-200">
             <CardElement className=" p-8    "
                 options={{
                     style: {
@@ -124,13 +131,13 @@ const CheckOutform = () => {
             >
             </CardElement>
             <div className="mx-auto  text-center pb-6">
-                <button className="btn btn-sm btn-primary my-4 btn-wide " type="submit" disabled={!stripe || !clientSecret}>
+                <button className="btn btn-sm btn-warning   text-white my-4 btn-wide text-lg " type="submit" disabled={!stripe || !clientSecret}>
                     Pay
                 </button>
             </div>
-            <p className="text-red-600"> {error}</p>
+            <p className="text-red-600 text-center pb-4"> {error}</p>
             {
-                transactionId && <p className="text-green-600">
+                transactionId && <p className="text-green-600 text-center pb-4">
                     Your transactionId : {transactionId}
                 </p>
             }

@@ -60,15 +60,15 @@ const FoodCard = ({ item }) => {
 
     }
     return (
-        <div className="card bg-base-100  shadow-xl">
+        <div className="card bg-slate-200  shadow-xl transition ease-in-out delay-150  hover:-translate-y-1 hover:scale-110  duration-300 ...">
             <figure>
                 <img
                     src={image}
                     alt="Shoes" />
             </figure>
-            <p className="bg-slate-800 text-white absolute right-3 top-3 p-1"> ${price} </p>
+            <p className="bg-slate-800 text-white absolute right-8 md:right-3 top-3 p-1"> ${price} </p>
             <div className="card-body flex flex-col items-center">
-                <h2 className="card-title">{name}</h2>
+                <h2 className="card-title text-black">{name}</h2>
                 <p>If a dog chews shoes whose shoes does he choose?</p>
                 <div className="card-actions justify-center">
                     <button

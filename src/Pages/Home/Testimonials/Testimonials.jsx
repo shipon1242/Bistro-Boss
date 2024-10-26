@@ -23,20 +23,20 @@ const Testimonials = () => {
 
 
     return (
-        <section className="py-16">
+        <section className="py-8 md:py-16">
             <SectionTitle
                 heading="TESTIMONIALS"
                 subHeading="What Our Clients Say">
             </SectionTitle>
 
-            <div className="mx-24">
+            <div className=" mx-8 md:mx-24">
                 <Swiper navigation={true} modules={[Navigation]} className="mySwiper">
 
                     {
                         reviews.map(review => <SwiperSlide
                             key={review._id}
                         >
-                            <div className="flex flex-col items-center gap-4 mt-10  mx-auto px-20">
+                            <div className="flex flex-col items-center gap-4 mt-10  mx-auto px-8 md:px-20">
                                 <Rating
                                     style={{ maxWidth: 180 }}
                                     value={review.rating}
@@ -44,7 +44,7 @@ const Testimonials = () => {
                                 />
                                 <img src={commaImg} className="w-20 rotate-180" alt="" />
                                 <p className="text-center"> {review.details} </p>
-                                <h3 className="text-2xl text-orange-300 text-center mt-2">{review.name} </h3>
+                                <h3 className="text-xl md:text-2xl text-orange-300 text-center mt-2">{review.name} </h3>
                             </div>
                         </SwiperSlide>)
                     }

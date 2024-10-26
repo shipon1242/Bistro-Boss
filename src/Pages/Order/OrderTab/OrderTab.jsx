@@ -26,7 +26,7 @@ const OrderTab = ({ items }) => {
         clickable: true,
         renderBullet: (index, className) => {
             
-            return '<span class="swiper-pagination-bullet swiper-pagination-bullet-active' + className + '">' + (index + 1) + '</span>';
+            return '<span class="swiper-pagination-bullet swiper-pagination-bullet-active ' + className + '">' + (index + 1) + '</span>';
             
         },
         
@@ -34,20 +34,20 @@ const OrderTab = ({ items }) => {
     };
 
     return (
-        <div >
+        <div  >
 
 
             <Swiper
                 pagination={pagination}
                 modules={[Pagination]}
-                className="mySwiper"
+                className="mySwiper "
                 onSlideChange={(swiper)=> setCurrentPage(swiper.activeIndex)}
             >
                 
                 {
                     arrayPage.map(pageCount=>
-                        <SwiperSlide >
-                    <div className="grid md:grid-cols-3 gap-8 pb-10">
+                        <SwiperSlide  >
+                    <div className="grid   md:grid-cols-3 gap-8 pb-10 ">
                         {
                             currentItems.map(item =>  <FoodCard  key={item._id} item={item}></FoodCard>)
                         }

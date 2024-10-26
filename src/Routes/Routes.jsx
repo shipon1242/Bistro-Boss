@@ -21,11 +21,14 @@ import Payment from "../Pages/DashBoard/Payment/Payment";
 import PaymentHistory from "../Pages/DashBoard/PaymentHistory/PaymentHistory";
 import UserHome from "../Pages/DashBoard/UserHome/UserHome";
 import AdminHome from "../Pages/DashBoard/AdminHome/AdminHome";
+import ErrorPage from "../Pages/ErrorPage/ErrorPage";
+import Contact from "../Pages/DashBoard/Contact/Contact";
 
 
 export const router = createBrowserRouter([
   {
     path: "/",
+    errorElement:<ErrorPage></ErrorPage>,
     element: <Main></Main>,
     children: [
       {
@@ -52,11 +55,16 @@ export const router = createBrowserRouter([
       {
         path: "/secret",
         element: <PrivateRoute> <Secret></Secret> </PrivateRoute>
-      }
+      },
+      {path:"/contact",
+        element:<Contact></Contact>
+
+      },
     ]
   },
   {
     path: "/dashboard",
+    errorElement:<ErrorPage></ErrorPage>,
     element: <PrivateRoute><DashBoard></DashBoard></PrivateRoute>,
     children: [
       {
@@ -75,6 +83,7 @@ export const router = createBrowserRouter([
         path: "paymentHistory",
         element: <PaymentHistory></PaymentHistory>
       },
+      
 
 
       // admin routes

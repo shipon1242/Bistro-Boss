@@ -28,7 +28,7 @@ const AddItems = () => {
                 image: res.data.data.display_url
 
             }
-            
+
 
             const menuRes = await axiosSecure.post('/menu', menuItem)
             console.log(menuRes.data)
@@ -48,33 +48,33 @@ const AddItems = () => {
     }
 
     return (
-        <div>
+        <div className="">
 
             <SectionTitle heading="add an item" subHeading="What's new?"></SectionTitle>
-            <div className="">
+            <div className="bg-slate-200 p-6">
                 <form onSubmit={handleSubmit(onSubmit)}>
 
 
                     <label className="form-control w-full my-6 ">
                         <div className="label">
-                            <span className="label-text">Recipe Name*</span>
+                            <span className="label-text text-black">Recipe Name*</span>
 
                         </div>
                         <input
                             type="text" {...register('name', { required: true })}
-                            placeholder="recipe name" className="input input-bordered w-full " />
+                            placeholder="recipe name" className="input input-bordered w-full bg-white text-black " />
 
                     </label>
 
-                    <div className="flex gap-6">
+                    <div className="flex flex-col lg:flex-row gap-6">
                         {/* category */}
                         <label className="form-control w-full ">
                             <div className="label">
-                                <span className="label-text">Category*</span>
+                                <span className="label-text text-black ">Category*</span>
 
                             </div>
                             <select defaultValue="default" {...register('category', { required: true })}
-                                className="select select-bordered w-full ">
+                                className="select select-bordered w-full bg-white text-black">
                                 <option disabled value="default">select a category</option>
                                 <option value="salad">Salad</option>
                                 <option value="dessert">Dessert</option>
@@ -89,12 +89,12 @@ const AddItems = () => {
                         {/* price*/}
                         <label className="form-control w-full ">
                             <div className="label">
-                                <span className="label-text">Price*</span>
+                                <span className="label-text text-black">Price*</span>
 
                             </div>
                             <input
                                 type="number" {...register('price', { required: true })}
-                                placeholder="price" className="input input-bordered w-full " />
+                                placeholder="price" className="input input-bordered w-full bg-white text-black " />
 
                         </label>
 
@@ -102,15 +102,15 @@ const AddItems = () => {
                     {/* recipe details */}
                     <label className="form-control my-6">
                         <div className="label">
-                            <span className="label-text">Recipe Details*</span>
+                            <span className="label-text text-black">Recipe Details*</span>
 
                         </div>
                         <textarea {...register('recipe', { required: true })}
-                            className="textarea textarea-bordered h-24" placeholder="Recipe Details"></textarea>
+                            className="textarea textarea-bordered h-24 bg-white text-black" placeholder="Recipe Details"></textarea>
 
                     </label>
-                    <div>
-                        <input type="file" {...register('image', { required: true })} className="file-input w-full max-w-xs mb-6" />
+                    <div >
+                        <input type="file"  {...register('image', { required: true })} className="file-input w-full max-w-xs mb-6 bg-white" />
                     </div>
                     <button className="btn  bg-gradient-to-r from-yellow-800 to-yellow-600 text-white">
                         Add Item <FaUtensils></FaUtensils>

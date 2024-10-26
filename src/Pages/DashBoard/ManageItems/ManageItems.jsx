@@ -48,7 +48,7 @@ const ManageItems = () => {
             <SectionTitle heading="manage all items" subHeading="Hurry Up"></SectionTitle>
            
             <div className="overflow-x-auto mt-10">
-            <h2 className="text-3xl font-semibold">Total Items:{menu.length} </h2>
+            <h2 className="text-3xl font-semibold text-black">Total Items:{menu.length} </h2>
                 <table className="table mt-8 ">
                     {/* head */}
                     <thead className="text-lg text-white border-4 rounded-t-lg  bg-amber-400 ">
