@@ -6,9 +6,13 @@ import useAxiosSecure from "../../../hooks/useAxiosSecure"
 import { FaEdit } from "react-icons/fa";
 import Swal from "sweetalert2";
 import { Link } from "react-router-dom";
+import { Helmet } from "react-helmet-async";
 const ManageItems = () => {
-    const [menu, ,refetch] = useMenu()
+    const [menu,loading ,refetch] = useMenu()
     const axiosSecure = useAxiosSecure()
+    if(loading){
+        return <span className="loading loading-bars loading-lg"></span>
+    }
     const handleDelete = (item) => {
         Swal.fire({
             title: "Are you sure?",
@@ -45,6 +49,9 @@ const ManageItems = () => {
 
     return (
         <div>
+            <Helmet>
+                <title>Dashboard | Admin | manageItem</title>
+            </Helmet>
             <SectionTitle heading="manage all items" subHeading="Hurry Up"></SectionTitle>
            
             <div className="overflow-x-auto mt-10">
@@ -65,6 +72,7 @@ const ManageItems = () => {
                     </thead>
                     <tbody>
                         {/* row  */}
+                        {/* {loading &&  <span className="loading loading-bars loading-lg"></span>} */}
                         {
                             menu.map((item, index) => <tr key={item._id}>
                                 <th>

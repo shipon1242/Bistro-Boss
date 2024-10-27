@@ -18,17 +18,23 @@ const Order = () => {
   const initialIndex =categories.indexOf(category)
   
   const [tabIndex,setTabIndex]=useState(initialIndex)
-    const [menu]=UseMenu()
+    const [menu,loading]=UseMenu()
+    if (loading) {
+      return <span className="loading loading-bars loading-lg mx-auto flex justify-center items-center "></span>
+  }
     const drinks = menu.filter(item=> item.category==="drinks")
     const pizza = menu.filter(item=> item.category==="pizza")
     const desserts = menu.filter(item=> item.category==="dessert")
     const salads = menu.filter(item=> item.category==="salad")
     const soups = menu.filter(item=> item.category==="soup")
    
-   
+    if (loading) {
+      return <span className="loading loading-bars loading-lg mx-auto flex justify-center items-center "></span>
+  }
     
     return (
         <div className="space-y-8 ">
+          {/* {loading && <span className="loading loading-spinner text-primary"></span>} */}
            <Helmet>
                 <title>Bistro Boss | order food</title>
             </Helmet>
@@ -43,24 +49,25 @@ const Order = () => {
   </TabList>
   <TabPanel> 
   <Navigate to="/order/salad"></Navigate>
-    <OrderTab   items={salads}></OrderTab>
+  
+    <OrderTab key={"salad"}  items={salads}></OrderTab>
     </TabPanel>
 
   <TabPanel>
     <Navigate to="/order/pizza"></Navigate>
-  <OrderTab items={pizza}></OrderTab>
+  <OrderTab key={"pizza"} items={pizza}></OrderTab>
   </TabPanel>
   <TabPanel>
   <Navigate to="/order/soups"></Navigate>
-  <OrderTab items={soups}></OrderTab>
+  <OrderTab key={"soup"} items={soups}></OrderTab>
   </TabPanel>
   <TabPanel>
   <Navigate to="/order/desserts"></Navigate>
-  <OrderTab items={desserts}></OrderTab>
+  <OrderTab key={"dessert"} items={desserts}></OrderTab>
   </TabPanel>
   <TabPanel>
   <Navigate to="/order/drinks"></Navigate>
-  <OrderTab items={drinks}></OrderTab>
+  <OrderTab key={'drinks'} items={drinks}></OrderTab>
   </TabPanel>
 </Tabs>
         </div>

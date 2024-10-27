@@ -6,6 +6,7 @@ import { MdPhoneInTalk } from "react-icons/md";
 import { IoLocationOutline, IoTimeOutline } from "react-icons/io5";
 import { useForm } from "react-hook-form";
 import Swal from "sweetalert2";
+import { Helmet } from "react-helmet-async";
 const Contact = () => {
     const { register, handleSubmit,reset } = useForm();
     const onSubmit=(data)=>{
@@ -22,6 +23,9 @@ const Contact = () => {
     }
     return (
         <div className="w-full bg-white  ">
+             <Helmet>
+                <title>Bistro boss | Contact</title>
+            </Helmet>
             <Cover className="w-full" img={img} title="contact us" subTitle="Would you like to try a dish?"></Cover>
             <SectionTitle heading="OUR LOCATION" subHeading="visit us"></SectionTitle>
             <div className="flex  px-4 md:px-20 gap-2 md:gap-4 mt-8">

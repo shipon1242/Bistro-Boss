@@ -62,18 +62,18 @@ const FoodCard = ({ item }) => {
     return (
         <div className="card bg-slate-200  shadow-xl transition ease-in-out delay-150  hover:-translate-y-1 hover:scale-110  duration-300 ...">
             <figure>
-                <img
+                <img className="w-full h-52"
                     src={image}
                     alt="Shoes" />
             </figure>
             <p className="bg-slate-800 text-white absolute right-8 md:right-3 top-3 p-1"> ${price} </p>
             <div className="card-body flex flex-col items-center">
                 <h2 className="card-title text-black">{name}</h2>
-                <p>If a dog chews shoes whose shoes does he choose?</p>
+                <p> {recipe} </p>
                 <div className="card-actions justify-center">
                     <button
                         onClick={() => handleAddToCart(item)}
-                        className="btn btn-outline bg-slate-200 mt-4 border-0 border-b-4 border-orange-400 text-orange-400 hover:bg-black hover:text-orange-400 hover:border-orange-400">Add TO CART</button>
+                        className="btn btn-outline bg-slate-200  border-0 border-b-4 border-orange-400 text-orange-400 hover:bg-black hover:text-orange-400 hover:border-orange-400">Add TO CART</button>
                 </div>
             </div>
         </div>

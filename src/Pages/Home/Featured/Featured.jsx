@@ -20,7 +20,7 @@ const Featured = () => {
                 <p className="uppercase text-xl">where can i get some?</p>
                 <p className=" w-full lg:w-[500px]">Indulge in our specially curated dish of the day, crafted with the finest ingredients to deliver an unforgettable taste. This signature creation embodies the essence of our culinary expertise, bringing you a perfect blend of flavors and freshness that will leave you craving for more!.</p>
                 <p>
-                    <button className="btn btn-outline mt-4 border-0 border-b-4">Read more</button>
+                    <button className="btn btn-outline mt-4 border-0 border-b-4 text-white">Read more</button>
                 </p>
             </div>
            </div>

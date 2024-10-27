@@ -2,6 +2,7 @@ import { useQuery } from "@tanstack/react-query";
 import SectionTitle from "../../../Components/SectionTitle/SectionTitle";
 import useAxiosSecure from "../../../hooks/useAxiosSecure";
 import useAuth from "../../../hooks/useAuth";
+import { Helmet } from "react-helmet-async";
 
 
 const PaymentHistory = () => {
@@ -18,13 +19,15 @@ const PaymentHistory = () => {
 
     return (
         <div className=" ">
-
+            <Helmet>
+                <title>Bistro Boss | Dashboard | payment history</title>
+            </Helmet>
             <SectionTitle heading="payment history" subHeading="At a Glance!"></SectionTitle>
             <div className="bg-white pt-4">
                 <h2 className=" pl-4 text-xl lg:text-3xl mt-4 text-black"> Total Payments : {paymentHistory.length} </h2>
                 <table className="table mt-8 ">
                     {/* head */}
-                    <thead className="text-lg text-white border-4 rounded-t-lg  bg-amber-400 ">
+                    <thead className="text-sm text-white border-4 rounded-t-lg  bg-amber-400 ">
                         <tr className="rounded-lg textarea-xs text-xs lg:text-base ">
                             {/* <th className="text-xs lg:text-base">
                                 #

@@ -4,6 +4,7 @@ import { MdDelete } from "react-icons/md";
 import { FaUser, FaUsers } from "react-icons/fa";
 import useAxiosSecure from "../../../hooks/useAxiosSecure";
 import Swal from "sweetalert2";
+import { Helmet } from "react-helmet-async";
 
 
 const AllUsers = () => {
@@ -91,6 +92,9 @@ const handleMakeAdmin=(user)=>{
 
     return (
         <div>
+            <Helmet>
+                <title> Dashboard | Admin | allUsers</title>
+            </Helmet>
             <div className="flex justify-evenly">
                 <h2 className="text-4xl">All Users</h2>
                 <h2 className="text-4xl">Total Users:{users.length} </h2>

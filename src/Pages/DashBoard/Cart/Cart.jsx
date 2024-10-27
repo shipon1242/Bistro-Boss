@@ -2,12 +2,16 @@ import { Link } from "react-router-dom";
 import useCart from "../../../hooks/useCart";
 import CartRow from "./CartRow";
 import SectionTitle from "../../../Components/SectionTitle/SectionTitle"
+import { Helmet } from "react-helmet-async";
 
 const Cart = () => {
     const [carts] = useCart()
     const totalPrice = carts.reduce((total, currentItem) => total + currentItem.price, 0)
     return (
         <div>
+             <Helmet>
+                <title>Bistro Boss | Dashboard | myCart</title>
+            </Helmet>
             <SectionTitle subHeading="My cart" heading="wanna add more"></SectionTitle>
            <div className="bg-white   lg:px-6  lg:mx-10 pt-3 lg:py-6 my-4 lg:my-8">
            <div className="flex justify-between w-full   text-black">

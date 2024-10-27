@@ -6,6 +6,7 @@ import { IoFastFoodSharp } from "react-icons/io5";
 import { GrDeliver } from "react-icons/gr";
 import { BiSolidPurchaseTag } from "react-icons/bi";
 import { TbShoppingCart } from "react-icons/tb";
+import { Helmet } from "react-helmet-async";
 
 
 const UserHome = () => {
@@ -27,6 +28,9 @@ const UserHome = () => {
 
     return (
         <div className=" w-full">
+             <Helmet>
+                <title>Bistro Boss | Dashboard | home</title>
+            </Helmet>
             <h2 className="text-2xl lg:text-3xl text-green-500 font-bold uppercase">
                 <span className="text-rose-500 ">Hi,Welcome </span>
                 {

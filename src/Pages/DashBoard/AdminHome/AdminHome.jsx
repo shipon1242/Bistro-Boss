@@ -7,6 +7,7 @@ import { FaUsers } from 'react-icons/fa6';
 import { IoFastFoodSharp } from 'react-icons/io5';
 import { GrDeliver } from 'react-icons/gr';
 import { BarChart, Bar, Cell, XAxis, YAxis, CartesianGrid, PieChart, Pie, Sector, ResponsiveContainer, Legend } from 'recharts';
+import { Helmet } from 'react-helmet-async';
 const AdminHome = () => {
     const { user } = useAuth()
     const axiosSecure = useAxiosSecure()
@@ -42,7 +43,7 @@ const AdminHome = () => {
         return <path d={getPath(x, y, width, height)} stroke="none" fill={fill} />;
     };
     // pi chart and color function 
-    const COLORS = ['#0088FE', '#00C49F', '#FFBB28', '#FF8042', 'red', 'pink'];
+    const COLORS = ['#0088FE', '#00C49F', '#FFBB28', '#FF8042', 'red', 'pink',"blue","green"];
 
     const RADIAN = Math.PI / 180;
     const renderCustomizedLabel = ({ cx, cy, midAngle, innerRadius, outerRadius, percent, index }) => {
@@ -62,6 +63,9 @@ const AdminHome = () => {
 
     return (
         <div>
+             <Helmet>
+                <title> Dashboard | Admin | home</title>
+            </Helmet>
             <h2 className="text-3xl text-black">
                 <span>Hi,Welcome </span>
                 {
@@ -133,7 +137,7 @@ const AdminHome = () => {
                         <YAxis />
                         <Bar dataKey="totalQuantity" fill="#8884d8" shape={<TriangleBar />} label={{ position: 'top' }}>
                             {chartData.map((entry, index) => (
-                                <Cell key={`cell-${index}`} fill={colors[index % 6]} />
+                                <Cell key={`cell-${index}`} fill={colors[index % 7]} />
                             ))}
                         </Bar>
                     </BarChart>

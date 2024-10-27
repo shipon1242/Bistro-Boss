@@ -22,7 +22,7 @@ const useCart = () => {
 export default useCart;
 
 
-// //  const myCart = fetch('http://localhost:5000/carts').then    (res=> res.json()).then(data=>{
+// //  const myCart = fetch('https://bistro-boss-server-dun-psi.vercel.app/carts').then    (res=> res.json()).then(data=>{
 //     return data
 // })
 // console.log(myCart)

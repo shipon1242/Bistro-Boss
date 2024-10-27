@@ -11,27 +11,32 @@ import MenuCategory from "../MenuCategory/MenuCategory";
 
 
 const Menu = () => {
- const [menu]=UseMenu()
- const offered = menu.filter(item=> item.category==="offered")
- const pizza = menu.filter(item=> item.category==="pizza")
- const desserts = menu.filter(item=> item.category==="dessert")
- const salads = menu.filter(item=> item.category==="salad")
- const soups = menu.filter(item=> item.category==="soup")
+    const [menu, loading] = UseMenu()
+    if (loading) {
+        return <span className="loading loading-bars loading-lg mx-auto flex justify-center items-center "></span>
+    }
+    const offered = menu.filter(item => item.category === "offered")
+    const pizza = menu.filter(item => item.category === "pizza")
+    const desserts = menu.filter(item => item.category === "dessert")
+    const salads = menu.filter(item => item.category === "salad")
+    const soups = menu.filter(item => item.category === "soup")
+
     return (
         <div className="">
+            {/* {loading && <span className="loading loading-bars loading-md"></span>} */}
             <Helmet>
                 <title>Bistro | Menu</title>
             </Helmet>
-            
-            <Cover img ={menuImg} title="our menu"subTitle="Would you like to try a dish?"></Cover>
-            <SectionTitle  heading="TODAY'S OFFER" subHeading="don't miss"></SectionTitle>
-            <MenuCategory  items={offered} title="salad" ></MenuCategory>
-            <MenuCategory items={desserts} title="desserts" subTitle="Lorem Ipsum has been the industry’s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled ." coverImg={dessertBg}></MenuCategory>
-            <MenuCategory items={pizza} title="pizza" subTitle="Lorem Ipsum has been the industry’s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled ." coverImg={pizzaBg}></MenuCategory>
-            <MenuCategory items={salads} title="salad" subTitle="Lorem Ipsum has been the industry’s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled ." coverImg={saladBg}></MenuCategory>
-            <MenuCategory items={soups} title="soups" subTitle="Lorem Ipsum has been the industry’s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled ." coverImg={soupBg}></MenuCategory>
-            
-            
+
+            <Cover img={menuImg} title="our menu" subTitle="Would you like to try a dish?"></Cover>
+            <SectionTitle heading="TODAY'S OFFER" subHeading="don't miss"></SectionTitle>
+            <MenuCategory loading={loading} items={offered.slice(0,6)} title="salad" ></MenuCategory>
+            <MenuCategory items={desserts.slice(0,6)} title="desserts" subTitle="Lorem Ipsum has been the industry’s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled ." coverImg={dessertBg}></MenuCategory>
+            <MenuCategory items={pizza.slice(0,6)} title="pizza" subTitle="Lorem Ipsum has been the industry’s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled ." coverImg={pizzaBg}></MenuCategory>
+            <MenuCategory items={salads.slice(0,6)} title="salad" subTitle="Lorem Ipsum has been the industry’s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled ." coverImg={saladBg}></MenuCategory>
+            <MenuCategory items={soups.slice(0,6)} title="soups" subTitle="Lorem Ipsum has been the industry’s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled ." coverImg={soupBg}></MenuCategory>
+
+
         </div>
     );
 };

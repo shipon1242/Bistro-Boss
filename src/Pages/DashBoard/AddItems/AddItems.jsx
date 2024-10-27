@@ -4,6 +4,7 @@ import { FaUtensils } from "react-icons/fa";
 import useAxiosPublic from "../../../hooks/useAxiosPublic"
 import useAxiosSecure from "../../../hooks/useAxiosSecure"
 import Swal from "sweetalert2";
+import { Helmet } from "react-helmet-async";
 
 const image_hosting_key = import.meta.env.VITE_IMAGE_HOSTING_KEY;
 const image_hosting_api = `https://api.imgbb.com/1/upload?key=${image_hosting_key}`
@@ -49,7 +50,9 @@ const AddItems = () => {
 
     return (
         <div className="">
-
+            <Helmet>
+                <title> Dashboard | Admin | addItem</title>
+            </Helmet>
             <SectionTitle heading="add an item" subHeading="What's new?"></SectionTitle>
             <div className="bg-slate-200 p-6">
                 <form onSubmit={handleSubmit(onSubmit)}>
@@ -81,6 +84,8 @@ const AddItems = () => {
                                 <option value="soup">Soup</option>
                                 <option value="pizza">Pizza</option>
                                 <option value="drinks">Drinks</option>
+                                <option value="offered">Offered</option>
+                                <option value="popular">Popular</option>
 
                             </select>
 

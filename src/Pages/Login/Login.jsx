@@ -5,7 +5,8 @@ import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { Helmet } from 'react-helmet-async';
 import SocialLogin from '../../Components/SocialLogin/SocialLogin';
 import useAuth from '../../hooks/useAuth';
-import img from '../../../src/assets/others/authentication1.png'
+import img from '../../../src/assets/others/authentication2.png'
+import bgImg from "../../../src/assets/others/authentication.png"
 const Login = () => {
 
 
@@ -47,23 +48,20 @@ const Login = () => {
 
     }
 
-
+    // hero  min-h-screen bg-[url('../../../src/assets/others/authentication.png')]
+    // {`hero  min-h-screen bg-[url(${bgImg})]`}
     return (
         <>
             <Helmet>
                 <title>Bistro boss | Login</title>
             </Helmet>
-            <div className="hero  min-h-screen bg-[url('../../../src/assets/others/authentication.png')]" >
+            <div style={{ backgroundImage: `url(${bgImg})` }} className={`hero  min-h-screen`} >
                 <div className="hero-content flex-col lg:flex-row ">
                     <div className="text-center md:w-1/2 lg:text-left ">
-                        {/* <h1 className="text-5xl font-bold">Login now!</h1>
-                        <p className="py-6">
-                            Provident cupiditate voluptatem et in. Quaerat fugiat ut assumenda excepturi exercitationem
-                            quasi. In deleniti eaque aut repudiandae et a id nisi.
-                        </p> */}
-                        <img src="../../../src/assets/others/authentication2.png" alt="" />
+
+                        <img src={img} />
                     </div>
-                    <div className="card  md:w-1/2 max-w-sm  shadow-2xl card-body border bg-[url('../../../src/assets/others/authentication.png')] ">
+                    <div style={{backgroundImage:`url(${bgImg})`}} className="card  md:w-1/2 max-w-sm  shadow-2xl card-body border  ">
                         <form onSubmit={handleLogin} className="">
                             <div className="form-control">
                                 <label className="label ">
